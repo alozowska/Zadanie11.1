@@ -12,37 +12,53 @@ public class Lista {
             System.out.println("podaj liczbę");
             liczba = scanner.nextInt();
         }
-        for (int i = liczby.size() - 1; i >= 0; i--) {    //odwrotna kolejnosc
+
+        odwrotnaKolejnosc(liczby);
+
+        int suma = wyswietlSume(liczby);
+        System.out.println("= " + suma);
+
+        int najwiekszaLiczba = znajdzNajwieksza(liczby);
+        System.out.println("największa wprowadzona liczba: " + najwiekszaLiczba);
+
+        int najmniejszaLiczba = znajdzNajmniejsza(liczby);
+        System.out.println("najmniejsza wprowadzona liczba: " + najmniejszaLiczba);
+    }
+
+
+    private static void odwrotnaKolejnosc(ArrayList<Integer> liczby) {
+        for (int i = liczby.size() - 1; i >= 0; i--) {
             System.out.println(liczby.get(i));
         }
+    }
+
+    private static int wyswietlSume(ArrayList<Integer> liczby) {
         int suma = 0;
         for (int i = 0; i < liczby.size(); i++) {
             System.out.print(liczby.get(i));
-            if (i+1<liczby.size()){
+            if (i + 1 < liczby.size()) {
                 System.out.print("+");
             }
             suma = suma + liczby.get(i);
         }
-        System.out.println( "=" + suma);
-        int najwiekszaLiczba=znajdzNajwieksza(liczby);
-        System.out.println("największa wprowadzona liczba: "+najwiekszaLiczba);
-        int najmniejszaLiczba=znajdzNajmniejsza(liczby);
-        System.out.println("najmniejsza wprowadzona liczba: "+najmniejszaLiczba);
+        return suma;
     }
-    private static int znajdzNajwieksza(ArrayList<Integer> liczby){
-       int  max=liczby.get(0);
+
+    private static int znajdzNajwieksza(ArrayList<Integer> liczby) {
+        int max = liczby.get(0);
         for (int i = 1; i < liczby.size(); i++) {
-            if (liczby.get(i)>max){
-                max=liczby.get(i);
+            if (liczby.get(i) > max) {
+                max = liczby.get(i);
             }
         }
         return max;
     }
-    private static int znajdzNajmniejsza(ArrayList<Integer> liczby){
-        int  min=liczby.get(0);
+
+    private static int znajdzNajmniejsza(ArrayList<Integer> liczby) {
+        int min = liczby.get(0);
         for (int i = 1; i < liczby.size(); i++) {
-            if (liczby.get(i)<min){
-                min=liczby.get(i);
+            if (liczby.get(i) < min) {
+                min = liczby.get(i);
             }
         }
         return min;
